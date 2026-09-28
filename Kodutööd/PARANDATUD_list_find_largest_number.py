@@ -11,8 +11,19 @@ def second_largest_sort(lst):
     return lst[1]
 
 
-
 # Sellel meetodil on loogika viga- milles see seisneb?
+#def second_largest_manual_sort(lst):
+#   last_largest = 0
+#    largest = 0
+#    for number in lst:
+#        if number > largest:
+#            last_largest = largest
+#            largest = number
+#    return last_largest
+# Vea seisnes selles et kood ei oskas leida vahe negatiivsuse arvudes
+#kuna muutujad algusest difineerisid nullist
+#Lisaks kood ei osanud öelda suurim väärtus kui juhtuks nii et üks ja sama
+#värtus kordaksid
 def second_largest_manual_sort(lst):
 
     largest = float('-inf')
