@@ -20,9 +20,9 @@ tehe = input("tehte tüüb: ")
 
 
 operaatorid = {
-    "+" : summa(x,y),
-    "-" : lahutamine(x,y),
-    "*" : korrutamine(x,y),
-    "/" : jagamine(x,y)}
+    "+" : summa,
+    "-" : lahutamine,
+    "*" : korrutamine,
+    "/" : jagamine}
 
-print(operaatorid[tehe])
+print(operaatorid[tehe](x,y))
