@@ -4,12 +4,9 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/Klassitöö/WelcomeScreen/.venv" />
+      <excludeFolder url="file://$MODULE_DIR$/Klassitöö/.venv" />
     </content>
     <orderEntry type="jdk" jdkName="~\Documents\Klaasi ja kodutöö programeerimise aluses\.venv" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
-  <component name="PackageRequirementsSettings" />
-  <component name="PyDocumentationSettings" />
-  <component name="ReSTService" />
-  <component name="TestRunnerService" />
 </module>
