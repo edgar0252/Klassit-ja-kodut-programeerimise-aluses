@@ -6,4 +6,10 @@ def ristsumma(arv: int) -> int:
     return rs
 
 
-print(ristsumma(987))
+i = 1
+
+while(True):
+    i += 1
+    if i**2 == ristsumma(i)**3:
+        print(i)
+        break
