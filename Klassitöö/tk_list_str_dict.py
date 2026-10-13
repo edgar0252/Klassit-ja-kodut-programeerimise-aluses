@@ -8,18 +8,30 @@
 
 # 1. Pesastatud listide ühendamine for-tsükliga
 def zip_lists_with_for_loop(par):
-    # Kirjuta siia implementatsioon
+    ret = []
+    for el_v in nested_lists:
+        print(el_v)
+        for el_s in el_v:
+            ret.append(el_s)
+    print(ret)
     return
+
+def zip_zap_lists_with_for_loop(par):
+    re = []
+    for el_v in nested_lists:
+        re.extend(el_v)
+
+    return re
 
 
 nested_lists = [[1, 2, 3], [4, 5, 6]]
 print(zip_lists_with_for_loop(nested_lists))  # expected output: [1, 2, 3, 4, 5, 6]
-
+print(zip_zap_lists_with_for_loop(nested_lists))
 
 # 2. Paarisarvud listist
 # Tagasta uus list, kuhu kuuluvad ainult paarisarvud (jääk 2-ga jagamisel on 0).
 def paarisarvud(arvud):
-    # Kirjuta siia implementatsioon
+
     return
 
 
