@@ -66,8 +66,10 @@ print(aeg(59))  # expected output: 0:00:59
 # A6. Tüübiteisendus
 # Parameetrid on sõned (nagu input() tagastab). Liida arvud kokku ja tagasta täisarv.
 def liida_soned(a, b):
-    
-    return
+    A = int(a)
+    B = int(b)
+    v = A + B
+    return v
 
 
-#print(liida_soned("12", "30"))  # expected output: 42
+print(liida_soned("12", "30"))  # expected output: 42
