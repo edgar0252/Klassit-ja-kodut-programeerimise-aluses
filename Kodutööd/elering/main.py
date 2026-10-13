@@ -15,7 +15,7 @@ TAISPAEV = 96  # 24 h x 4 intervalli
 def naita(pealkiri: str, hinnad: dict, mitu: int | None = None) -> None:
     """Prindib hinnad tabelina; `mitu` piirab ridade arvu (None = kõik)."""
     print(f"\n{pealkiri}")
-    for aeg, hind in list(hinnad.items())[:mitu]:
+    for aeg, hind in list(hinnad.items())[33:mitu]:
         print(f"  {aeg:%d.%m %H:%M}  {hind:7.2f} EUR/MWh")
 
 
