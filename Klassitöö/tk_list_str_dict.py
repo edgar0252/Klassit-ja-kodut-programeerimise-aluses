@@ -26,13 +26,18 @@ def zip_zap_lists_with_for_loop(par):
 
 nested_lists = [[1, 2, 3], [4, 5, 6]]
 print(zip_lists_with_for_loop(nested_lists))  # expected output: [1, 2, 3, 4, 5, 6]
-print(zip_zap_lists_with_for_loop(nested_lists))
+#print(zip_zap_lists_with_for_loop(nested_lists))
 
 # 2. Paarisarvud listist
 # Tagasta uus list, kuhu kuuluvad ainult paarisarvud (jääk 2-ga jagamisel on 0).
 def paarisarvud(arvud):
+    va = []
+    for element in arvud:
+        if element % 2 == 0:
+            va.append(element)
 
-    return
+
+    return va
 
 
 print(paarisarvud([9, 8, 7, 1, 2, 3, 4, 5, 6]))  # expected output: [8, 2, 4, 6]
@@ -41,18 +46,44 @@ print(paarisarvud([9, 8, 7, 1, 2, 3, 4, 5, 6]))  # expected output: [8, 2, 4, 6]
 # 3. Suurim arv listist (ilma max() funktsioonita)
 # Käi list for-tsükliga läbi ja leia suurim element.
 def suurim(arvud):
-    # Kirjuta siia implementatsioon
-    return
+    suurim = float("-inf")
+    for el in arvud:
+        if el > suurim:
+            suurim = el
+    return suurim
 
 
 print(suurim([3, 17, -5, 9, 12]))  # expected output: 17
+print(suurim([-3, -17, -5, -9, -12]))
 
 
 # 4. Täishäälikute loendamine sõnes
 # Loenda, mitu täishäälikut (a, e, i, o, u, õ, ä, ö, ü) sõnes on. Suur- ja väiketähti kohtle ühtemoodi.
 def taishaalikud(sone):
-    # Kirjuta siia implementatsioon
-    return
+    a = sone.lower()
+    taishaalik = 0
+    for le in a:
+        if le == "a":
+            taishaalik += 1
+        if le == "e":
+            taishaalik += 1
+        if le == "i":
+            taishaalik += 1
+        if le == "o":
+            taishaalik += 1
+        if le == "u":
+            taishaalik += 1
+        if le == "õ":
+            taishaalik += 1
+        if le == "ä":
+            taishaalik += 1
+        if le == "ö":
+            taishaalik += 1
+        if le == "ü":
+            taishaalik += 1
+
+
+    return taishaalik
 
 
 print(taishaalikud("Kalevipoeg"))  # expected output: 5
@@ -62,8 +93,11 @@ print(taishaalikud("Õnnelik Üliõpilane"))  # expected output: 9
 # 5. Sõnade esinemiste loendamine sõnastikku
 # Tagasta sõnastik, kus võti on sõna ja väärtus on selle sõna esinemiste arv listis.
 def loenda_sonad(sonad):
-    # Kirjuta siia implementatsioon
-    return
+    loend = {}
+    for ell in sonad:
+       loend[ell] = sonad.count(ell)
+
+    return loend
 
 
 print(loenda_sonad(["õun", "pirn", "õun", "banaan", "õun", "pirn"]))
