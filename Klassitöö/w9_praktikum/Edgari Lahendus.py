@@ -35,10 +35,10 @@ for i in range(len(hinnad) - Akken + 1):
     summa = sum(hinnad[i:i+Akken])
     hinde_summa.append((paarid[i][0], summa))
 parim = min(hinde_summa, key=lambda p: p[1])
-print(f"Odavaim {tunnid} tundi algab: {parim[0]}, hindade summa: {parim[1]:.2f}")
-
 mwh_veerandtunnis = võimsus_kw * 0.25 / 1000
 maksumus = parim[1] * mwh_veerandtunnis
-print(f"Võimsusega {võimsus_kw} kW maksab see {maksumus:.4f} €")
+print(f"Odavaim {tunnid} tundi algab: {parim[0]}, hindade summa: {parim[1]:.2f} MWh. Võimsusega {võimsus_kw} kW maksab see {maksumus:.4f} € ")
+
+
 
 
