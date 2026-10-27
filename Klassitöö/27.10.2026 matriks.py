@@ -12,8 +12,10 @@ def peadiagonaal(matriks):
 def kõrvdiagonaal(matriks):
     suuurus = len(matriks)
     for i in range(suuurus):
-        veerg = suuurus - 1 - i
-        print(matriks[i][veerg])
+        #veerg = suuurus - 1 - i
+        #print(matriks[i][veerg])
+        #print(matriks[i][-i-1])
+        print(matriks[i][suuurus - i - 1])
 
 
 def print_matriks(matriks):
