@@ -11,6 +11,7 @@ for aeg, hind in paarid:
     hinnad.append(hind)
 keskmine_hind = round(sum(hinnad) / len(hinnad), 2)
 
+
 with open("odav.txt", "w") as odav, open("kallis.txt", "w") as kallis:
     for aeg,hind in paarid:
         if hind < keskmine_hind:
@@ -35,6 +36,7 @@ for i in range(len(hinnad) - Akken + 1):
     summa = sum(hinnad[i:i+Akken])
     hinde_summa.append((paarid[i][0], summa))
 parim = min(hinde_summa, key=lambda p: p[1])
+#leian kui palju maksab meie tarbimisega tunnis
 mwh_veerandtunnis = võimsus_kw * 0.25 / 1000
 maksumus = parim[1] * mwh_veerandtunnis
 print(f"Odavaim {tunnid} tundi algab: {parim[0]}, hindade summa: {parim[1]:.2f} MWh. Võimsusega {võimsus_kw} kW maksab see {maksumus:.4f} € ")
