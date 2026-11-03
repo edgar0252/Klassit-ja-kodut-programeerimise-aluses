@@ -95,11 +95,3 @@ def salvesta_hinnakiri(tooted, failinimi):
 
 main()
 
-    #loopida kõik read
-    # if KM 22% nool 24%:
-        #arvuta laoseiseu enne
-        #arvuta laoseisu pärast
-    #elif KM 9% or 0% or 13%:
-        #pass
-    #Else:
-        #
