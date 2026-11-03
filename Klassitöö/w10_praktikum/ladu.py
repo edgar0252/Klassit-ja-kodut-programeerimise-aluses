@@ -92,6 +92,6 @@ def salvesta_hinnakiri(tooted, failinimi):
             toode["hind_km_ga"] = hind_km_ga(toode["hind_km_ta"], toode["km_maar"])
             kirjutaja.writerow(toode)
 
-
-main()
+if __name__ == "__main__":
+    main()
 
