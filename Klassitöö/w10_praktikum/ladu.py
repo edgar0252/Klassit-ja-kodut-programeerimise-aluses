@@ -79,6 +79,20 @@ def main():
     print(f"Lao väärtus km-ga (vana määr): {vana:.2f} €")
     print(f"Lao väärtus km-ga (uus määr):  {uus:.2f} €")
     print(f"Vahe: {uus - vana:.2f} €")
+    salvesta_hinnakiri(tooted, "tooted_2025_07.csv")
+    print("Uus hinnakiri salvestatud: tooted_2025_07.csv")
+
+
+def salvesta_hinnakiri(tooted, failinimi):
+    veerud = ["inventari_nr", "nimetus", "hind_km_ta", "laoseis", "km_maar", "hind_km_ga"]
+    with open(failinimi, "w", encoding="utf-8", newline="") as f:
+        kirjutaja = csv.DictWriter(f, fieldnames=veerud, delimiter=";")
+        kirjutaja.writeheader()
+        for toode in uued_tooted(tooted):
+            toode["hind_km_ga"] = hind_km_ga(toode["hind_km_ta"], toode["km_maar"])
+            kirjutaja.writerow(toode)
+
+
 main()
 
     #loopida kõik read
