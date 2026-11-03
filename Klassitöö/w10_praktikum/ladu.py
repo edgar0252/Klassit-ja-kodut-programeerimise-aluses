@@ -1,5 +1,10 @@
 import csv
 
+######################################################
+
+#loe_tooted loeb juba olev fail, salvestab teda muutujaks ehk teisendab arvud mis on sõnad arvudeks
+
+
 def loe_tooted(failinimi):
     tooted = []
 #loeme faili sisse
@@ -14,11 +19,18 @@ def loe_tooted(failinimi):
             tooted.append(rida) #salvestan teisendatud väärtused uue listi sõnastiku formaadis ehk saan loend millega on mugav töötada
     return tooted
 
+####################################################
+
 #loon uus funktsiooni mis arvutab hind käibemaksuga
+
 def hind_km_ga(hind, maar):
     if hind < 0:
         raise ValueError("hind ei saa olla negatiivne")
     return round(hind * (1 + maar / 100), 2)
+
+#######################################################
+
+#kontrollime kas käibemaks on õige või vajab uuendamist
 
 def uus_maar(maar):
     if maar == 22:
@@ -27,6 +39,10 @@ def uus_maar(maar):
         return maar
     else:
         raise ValueError(f"Määr {maar}% pole Eestis kehtiv")
+
+##########################################################
+
+#siin me arvutame kogu laoväärtus
 
 def lao_vaartus(tooted, km_ga=False):
     #selle funktsiooni sees arvutame hind vana käibemaksuga
@@ -38,6 +54,10 @@ def lao_vaartus(tooted, km_ga=False):
         summa += hind * toode["laoseis"]
     return summa
 
+###########################################################
+
+#võttab meie toodet ja uuendab käibemaksu
+
 def uued_tooted(tooted):
     tulemus = []
     for toode in tooted:
@@ -45,6 +65,23 @@ def uued_tooted(tooted):
         uus["km_maar"] = uus_maar(uus["km_maar"])
         tulemus.append(uus)
     return tulemus
+
+###########################################################
+
+#salvestame tulemused uueks failiks
+
+def salvesta_hinnakiri(tooted, failinimi):
+    veerud = ["inventari_nr", "nimetus", "hind_km_ta", "laoseis", "km_maar", "hind_km_ga"]
+    with open(failinimi, "w", encoding="utf-8", newline="") as f:
+        kirjutaja = csv.DictWriter(f, fieldnames=veerud, delimiter=";")
+        kirjutaja.writeheader()
+        for toode in uued_tooted(tooted):
+            toode["hind_km_ga"] = hind_km_ga(toode["hind_km_ta"], toode["km_maar"])
+            kirjutaja.writerow(toode)
+
+############################################################
+
+#peamine funktsioon mis suhtleb tistega
 
 def main():
     tooted = loe_tooted("tooted.csv")
@@ -82,15 +119,10 @@ def main():
     salvesta_hinnakiri(tooted, "tooted_2025_07.csv")
     print("Uus hinnakiri salvestatud: tooted_2025_07.csv")
 
+########################################################
 
-def salvesta_hinnakiri(tooted, failinimi):
-    veerud = ["inventari_nr", "nimetus", "hind_km_ta", "laoseis", "km_maar", "hind_km_ga"]
-    with open(failinimi, "w", encoding="utf-8", newline="") as f:
-        kirjutaja = csv.DictWriter(f, fieldnames=veerud, delimiter=";")
-        kirjutaja.writeheader()
-        for toode in uued_tooted(tooted):
-            toode["hind_km_ga"] = hind_km_ga(toode["hind_km_ta"], toode["km_maar"])
-            kirjutaja.writerow(toode)
+#kuna laadisin alla pytest siis tegin nii et kui ma manuaalselst käivitan programmi siis käivitab main()
+#aga kui faili avab teine fail siis main() ei käivitatakse
 
 if __name__ == "__main__":
     main()
