@@ -4,7 +4,6 @@ import csv
 
 #loe_tooted loeb juba olev fail, salvestab teda muutujaks ehk teisendab arvud mis on sõnad arvudeks
 
-
 def loe_tooted(failinimi):
     tooted = []
 #loeme faili sisse
@@ -19,7 +18,7 @@ def loe_tooted(failinimi):
             tooted.append(rida) #salvestan teisendatud väärtused uue listi sõnastiku formaadis ehk saan loend millega on mugav töötada
     return tooted
 
-####################################################
+######################################################
 
 #loon uus funktsiooni mis arvutab hind käibemaksuga
 
@@ -28,7 +27,7 @@ def hind_km_ga(hind, maar):
         raise ValueError("hind ei saa olla negatiivne")
     return round(hind * (1 + maar / 100), 2)
 
-#######################################################
+######################################################
 
 #kontrollime kas käibemaks on õige või vajab uuendamist
 
@@ -40,7 +39,7 @@ def uus_maar(maar):
     else:
         raise ValueError(f"Määr {maar}% pole Eestis kehtiv")
 
-##########################################################
+######################################################
 
 #siin me arvutame kogu laoväärtus
 
@@ -54,7 +53,7 @@ def lao_vaartus(tooted, km_ga=False):
         summa += hind * toode["laoseis"]
     return summa
 
-###########################################################
+######################################################
 
 #võttab meie toodet ja uuendab käibemaksu
 
@@ -66,7 +65,7 @@ def uued_tooted(tooted):
         tulemus.append(uus)
     return tulemus
 
-###########################################################
+######################################################
 
 #salvestame tulemused uueks failiks
 
@@ -79,7 +78,7 @@ def salvesta_hinnakiri(tooted, failinimi):
             toode["hind_km_ga"] = hind_km_ga(toode["hind_km_ta"], toode["km_maar"])
             kirjutaja.writerow(toode)
 
-############################################################
+######################################################
 
 #peamine funktsioon mis suhtleb tistega
 
@@ -95,6 +94,9 @@ def main():
             maarad[m] = 1
     for maar, mitu in maarad.items():
         print(f"Määraga {maar}%: {mitu} toodet")
+
+#leiame millised tooded on läbi
+
     otsas = []
     for toode in tooted:
         if toode["laoseis"] == 0:
@@ -102,6 +104,9 @@ def main():
     print(f"Laost otsas: {len(otsas)} toodet")
     for nimi in otsas:
         print(f"  - {nimi}")
+
+#leian kõige kallima ja odavama ehk prindin neid
+
     kalleim = max(tooted, key=lambda t: t["hind_km_ta"])
     odavaim = min(tooted, key=lambda t: t["hind_km_ta"])
     print(f"Kõige kallim: {kalleim['nimetus']} ({kalleim['inventari_nr']}), "
@@ -119,7 +124,7 @@ def main():
     salvesta_hinnakiri(tooted, "tooted_2025_07.csv")
     print("Uus hinnakiri salvestatud: tooted_2025_07.csv")
 
-########################################################
+######################################################
 
 #kuna laadisin alla pytest siis tegin nii et kui ma manuaalselst käivitan programmi siis käivitab main()
 #aga kui faili avab teine fail siis main() ei käivitatakse
