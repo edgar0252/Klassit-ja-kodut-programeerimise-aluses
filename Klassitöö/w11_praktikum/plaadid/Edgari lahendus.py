@@ -13,7 +13,7 @@ for rida in sisu:
     zanr = osad[1]
     aasta = int(osad[2])
     plaadid.append([esitaja, album, zanr, aasta])
-#print(plaadid)
+
 
 def otsi_zanri_järgi(otsitav_zanr):
     if otsitav_zanr == "":
@@ -33,7 +33,6 @@ def otsi_ajavahemikku_jargi(ajavahemik):
             vajalikku_ajaga.append(aeg)
     return vajalikku_ajaga
 
-#tulemus = otsi_zanri_järgi(otsitav_zanr)
 tulemus_ajaga = otsi_ajavahemikku_jargi(ajavahemik)
 
 for plaat in tulemus_ajaga:
