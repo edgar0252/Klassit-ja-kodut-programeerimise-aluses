@@ -37,5 +37,5 @@ def otsi_ajavahemikku_jargi(ajavahemik):
 tulemus_ajaga = otsi_ajavahemikku_jargi(ajavahemik)
 
 for plaat in tulemus_ajaga:
-    print(f"{plaat[0]}-{plaat[1]}")
+    print(f"{plaat[0]} - {plaat[1]}")
 
