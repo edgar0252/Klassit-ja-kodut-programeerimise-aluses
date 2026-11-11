@@ -44,8 +44,11 @@ def loe_linnu_raamat(faili_generaator):
         sonastik[lind] = int(arv)
     return sonastik
 
+
+
 def lindude_koguarv(linnu_raamat):
     return sum(linnu_raamat.values())
+
 
 
 faili_nimi = input("sisesta filinimi:")
