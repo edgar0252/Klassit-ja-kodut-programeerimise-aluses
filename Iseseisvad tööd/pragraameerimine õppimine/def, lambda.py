@@ -44,7 +44,7 @@ def minnimal(lis):
     return min(lis)
 
 def minnnimal(lis):
-    min_num = lis[0]
+
     for el in lis:
         if el < min_num:
             min_num = el
